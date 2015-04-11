@@ -1,0 +1,102 @@
+{% include 'includes/head' %}
+{% include 'includes/nav' %}
+
+
+{% comment %} This index loop is a fallback, instead I've use the "/pairs/index.html" file for the archive page {% endcomment %}
+
+<section class="page__title">
+  <div class="content__span center-text title-block--title-img">
+    {% comment %}
+    <h1>About</h1>
+    {% endcomment %}
+    <div class="title-img">
+      <img src="/img/titles/page-title-archive.png" alt="" />
+    </div>
+  </div>
+</section>
+
+
+{% for post in posts %}
+  <section class="archive__title">
+    <a href="{{post.url}}">
+      <div class="content__span center-text title-block">
+        <h2>{{post.title}}</h2>
+        <h6>{{post.date | date: "%D"}}</h6>
+      </div>
+    </a>
+  </section>
+{% endfor %}
+
+
+
+{% comment %} I've commented out this section for now, pending completion of pagenation of archive pages.
+
+<section class="post__pagenation archive">
+  <div class="content__span grid">
+    <div class="grid__col grid__col--6-of-12 left--turn">
+      <a href="#">
+        <i></i>
+        <h4 class="page--title">Previous Page</h4>
+      </a>
+    </div>
+    <div class="grid__col grid__col--6-of-12 right--turn">
+      <a href="#">
+        <i></i>
+        <h4 class="page--title">Next Page</h4>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+{% if current.parent and (current.previous or current.next) %}
+
+<section class="post__pagenation">
+  <div class="content__span grid">
+
+    {% if current.previous %}
+    <div class="grid__col grid__col--5-of-12 left--turn">
+      <a href="{{ current.previous.url }}">
+        <i></i>
+        <h6>Previous Good Pair</h6>
+        <h4 class="page--title">{{ current.previous.title }}</h4>
+      </a>
+    </div>
+    {% else %}
+    <div class="grid__col grid__col--5-of-12 left--turn">
+      <h6>This is the </br>first pair.</h6>
+    </div>
+    {% endif %}
+
+
+    <div class="grid__col grid__col--2-of-12 archive">
+      {% if parent %}
+      <a href="/pairs">
+        <h4 class="btn btn--uline">Archive</h4>
+      </a>
+      {% endif %}
+    </div>
+
+
+    {% if current.next %}
+    <div class="grid__col grid__col--5-of-12 right--turn">
+      <a href="{{ current.next.url }}">
+        <i></i>
+        <h6>Previous Good Pair</h6>
+        <h4 class="page--title">{{ current.next.title }}</h4>
+      </a>
+    </div>
+    {% else %}
+    <div class="grid__col grid__col--5-of-12 right--turn">
+      <h6>This is the most</br> recent pair.</h6>
+    </div>
+    {% endif %}
+
+
+  </div>
+</section>
+
+{% endif %}
+{% endcomment %}
+
+{% include 'includes/footer' %}

@@ -1,0 +1,228 @@
+{% include 'includes/head' %}
+{% include 'includes/nav' %}
+
+
+{% if type == 'post' %}
+{% assign post = current %}
+
+
+{% include 'includes/sticky-nav' %}
+
+<section class="post__title">
+  <div class="content__span center-text title-block">
+    <h1>{{post.title}}</h1>
+    <h6>{{post.date | date: "%D"}}</h6>
+  </div>
+</section>
+
+<section id="post__hero" class="container">
+  <div class="side__img left">
+    <img src="/img/hero-side-baked~temp.jpg" alt="" />
+  </div>
+  <div class="side__img right">
+    <img src="/img/hero-side-coffee~temp.jpg" alt="" />
+    {% comment %}
+    <video autoplay='true' loop='true' muted='true' id="bgvid">
+      <source src="/vid/0001-Vid.mp4" type="video/webm">
+      <source src="/vid/0001-Vid.mp4" type="video/mp4">
+    </video>
+    {% endcomment %}
+  </div>
+</section>
+
+<section id="pairing" class="content__sect first">
+  <div class="content__span" >
+    <h2 class="post__title center">The Pairing</h2>
+    <p class="post center">
+      {{meta['pairing-body']}}
+    </p>
+  </div>
+  <span class="deets">
+    <div class="content__span">
+      <ul>
+        <li>
+          <h6>Goods</h6>
+          <p>{{meta['pairing-goods']}}</p>
+        </li>
+        <li>
+          <h6>Time of Day</h6>
+          <p>{{meta['pairing-time-o-day']}}</p>
+        </li>
+        <li>
+          <h6>Flavors</h6>
+          <p>{{meta['pairing-flavors']}}</p>
+        </li>
+      </ul>
+
+    </div>
+  </span>
+</section>
+
+<section id="recipe" class="content__sect">
+  <div class="content__span">
+    <h6 class="post__title entry">A Good Recipe</h6>
+    <h2 class="post__title entry">{{meta['recipe-headline']}}</h2>
+    <figure class="post__mini-hero first" style="background-image: url({{meta['recipe-hero']}});">
+
+    </figure>
+    <p class="post underline"><strong>alex:</strong> {{meta['recipe-intro'] | markdown }}</p>
+    <span class="post__details">
+      <ul class="border-bottom">
+
+        <li>
+          {{meta['recipe-col-1'] | markdown }}
+        </li>
+        <li>
+          {{meta['recipe-col-2'] | markdown }}
+        </li>
+      </ul>
+    </span>
+  </div>
+  <div class="content__span">
+    <h2 class="post__title center">The Recipe</h2>
+    <span class="post__recipe">
+      {{meta['recipe-post-recipe'] | markdown}}
+      <h3>Done!</h3>
+      <h6>now for the drink...</h6>
+    </span>
+    <figure class="post__mini-hero foot">
+      <div class="l25" style="background-image: url({{meta['recipe-hero']}});">
+
+      </div>
+      <div class="r75" style="background-image: url({{meta['recipe-hero']}});">
+
+      </div>
+    </figure>
+  </div>
+</section>
+
+<section id="drink" class="content__sect">
+  <div class="content__span">
+    <h6 class="post__title entry">A Good Drink</h6>
+    <h2 class="post__title entry">{{meta['drink-headline']}}</h2>
+    <figure class="post__mini-hero first" style="background-image: url({{meta['recipe-hero']}});"></figure>
+    <p class="post underline"><strong>john:</strong> {{meta['drink-intro']}}</p>
+    <span class="post__details">
+      <ul class="x__btm-mar">
+        <li>
+          {{meta['drink-col-1'] | markdown }}
+        </li>
+        <li>
+          {{meta['drink-col-2'] | markdown }}
+        </li>
+      </ul>
+      <ul class="brand">
+        <li class="img">
+          <img src="{{meta['drink-recco-img']}}" alt="" />
+        </li>
+        <li class="content">
+          {{meta['drink-recco-title'] | markdown }}
+          <ul class="min">
+            <li>
+              {{meta['drink-recco-note-1'] | markdown }}
+            </li>
+            <li>
+              {{meta['drink-recco-note-2'] | markdown }}
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </span>
+  </div>
+  <div class="content__span">
+    <h2 class="post__title center">Process</h2>
+    <span class="post__recipe">
+      {{meta['drink-post-recipe'] | markdown}}
+      <h3>Done!</h3>
+      <h6>Enjoy the pair</h6>
+    </span>
+    <figure class="post__mini-hero foot last">
+      <div class="l25" style="background-image: url({{meta['recipe-hero']}});">
+
+      </div>
+      <div class="r75" style="background-image: url({{meta['recipe-hero']}});">
+
+      </div>
+    </figure>
+  </div>
+</section>
+
+<section class="content__span ">
+  <div class="post__end">
+    <h3>Thanks for reading.</h3>
+    <ul>
+      <li class="social social__t">
+        <img src="/img/ico-Twitter.svg" alt="Twitter" />
+        <div class="twitter">
+          <a href="https://twitter.com/share" class="twitter-share-button" data-via="AGoodPair">Tweet</a>
+        </div>
+      </li>
+      <li class="social social__f">
+        <img src="/img/ico-Facebook.svg" alt="Facebook" />
+        <div class="fb-like" data-href="{{ current.permalink | escape }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+      </li>
+      <li class="mailing--list">
+        {% include 'includes/mail-chimp' %}
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+{% if current.parent and (current.previous or current.next) %}
+<section class="post__pagenation">
+  <div class="content__span grid">
+    {% if current.previous %}
+    <div class="grid__col grid__col--5-of-12 left--turn">
+      <a href="{{ current.previous.url }}">
+        <i></i>
+        <h6>Previous Good Pair</h6>
+        <h4 class="page--title">{{ current.previous.title }}</h4>
+      </a>
+    </div>
+    {% else %}
+    <div class="grid__col grid__col--5-of-12 left--turn">
+      <h6 class="dead--end">This is the </br>first pair.</h6>
+    </div>
+    {% endif %}
+    <div class="grid__col grid__col--2-of-12 archive">
+      {% if parent %}
+      <a href="/pairs">
+        <h4 class="btn btn--uline">Archive</h4>
+      </a>
+      {% endif %}
+    </div>
+    {% if current.next %}
+    <div class="grid__col grid__col--5-of-12 right--turn">
+      <a href="{{ current.next.url }}">
+        <i></i>
+        <h6>Previous Good Pair</h6>
+        <h4 class="page--title">{{ current.next.title }}</h4>
+      </a>
+    </div>
+    {% else %}
+    <div class="grid__col grid__col--5-of-12 right--turn">
+      <h6 class="dead--end">This is the most</br> recent pair.</h6>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+{% endif %}
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=279608135389500&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>
+
+
+{% include 'includes/footer' %}

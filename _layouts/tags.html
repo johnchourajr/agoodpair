@@ -1,0 +1,46 @@
+<section class="post__title">
+  <div class="content__span center-text title-block">
+    <h1>All Pairing Parts</h1>
+  </div>
+</section>
+
+
+{% comment %} TAXONOMY STRING {% endcomment %}
+<section class="content__sect">
+  <h2 class="sect__title">Pairing Parts</h2>
+  <div class="content__span grid">
+    <div class="grid__col grid__col--1-of-3 parts__col">
+      <h3>Recipes</h3>
+      <ul>
+        {% for tag in taxonomy['Recipes'] limit:5 %}
+        <li><a href="{{tag.url}}">{{tag.value}}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="grid__col grid__col--1-of-3 parts__col">
+      <h3>Drinks</h3>
+      <ul>
+        {% for tag in taxonomy['Drinks'] limit:5 %}
+        <li><a href="{{tag.url}}">{{tag.value}}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="grid__col grid__col--1-of-3 parts__col">
+      <h3>Taste</h3>
+      <ul>
+        {% for tag in taxonomy['Taste'] limit:5 %}
+        <li><a href="{{tag.url}}">{{tag.value}}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <section class="content__span ">
+    <div class="post__end">
+      <ul>
+        <li class="mailing--list">
+          {% include 'includes/mail-chimp' %}
+        </li>
+      </ul>
+    </div>
+  </section>
+</section>

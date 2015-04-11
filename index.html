@@ -1,0 +1,106 @@
+
+{% include 'includes/head' %}
+{% include 'includes/nav' %}
+
+
+<a href="{{meta['hero-main-link']}}">
+  <section id="peeky_hero" class="container">
+    <div class="side__img left" style="background-image:url({{meta['hero-main-baked']}});">
+    </div>
+    <div class="side__img right" style="background-image:url({{meta['hero-main-coffee']}});">
+    </div>
+    <div class="hero__title-box">
+      <div class="text">
+        <h6>A New Pair</h6>
+        {% comment %}
+        <h1>{{meta['hero-main-title']}}</h1>
+        {% endcomment %}
+        <div class="hero-title-img">
+          <img src="{{meta['hero-main-title']}}" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="hero__line"></div>
+  </section>
+</a>
+
+<section class="content__sect first">
+  <h2 class="sect__title">Recent Pairs</h2>
+  <a href="{{meta['pair-01-link']}}">
+    <figure class="thumb__box large">
+      <div class="side__img left" style="background-image:url({{meta['pair-01-baked']}});">
+      </div>
+      <div class="side__img right" style="background-image:url({{meta['pair-01-coffee']}});">
+      </div>
+      <div class="thumb__title-box large">
+        <h6>{{meta['pair-01-date']}}</h6>
+        {% comment %}
+        <h1>{{meta['pair-01-title']}}</h1>
+        {% endcomment %}
+        <div class="title-img">
+          <img src="{{meta['pair-01-title']}}" alt="" />
+        </div>
+      </div>
+    </figure>
+  </a>
+  {% comment %}
+  <div class="thumb__group grid">
+    <div class="grid__col grid__col--1-of-2 thumb__group--box ">
+      <a href="/style-guide">
+        <figure class="thumb__box small">
+          <div class="side__img left">
+            <img src="/img/hero-side-baked~temp.jpg" alt="" />
+          </div>
+          <div class="side__img right">
+            <img src="/img/hero-side-coffee~temp.jpg" alt="" />
+          </div>
+          <div class="thumb__title-box small">
+            <h1>Day #1:<br>A Tartine Masterpiece</h1>
+          </div>
+        </figure>
+      </a>
+    </div>
+    <div class="grid__col grid__col--1-of-2 thumb__group--box">
+      <a href="/style-guide">
+        <figure class="thumb__box small">
+          <div class="side__img left">
+            <img src="/img/hero-side-baked~temp.jpg" alt="" />
+          </div>
+          <div class="side__img right">
+            <img src="/img/hero-side-coffee~temp.jpg" alt="" />
+          </div>
+          <div class="thumb__title-box small">
+            <h1>Day #1:<br>A Tartine Masterpiece</h1>
+          </div>
+        </figure>
+      </a>
+    </div>
+    {% endcomment %}
+  </div>
+  <div class="content__span center-text">
+    <h4 class="btn btn--uline"><a href="/pairs/archive">View Full Archive</a></h4>
+  </div>
+</section>
+
+{% comment %}
+<section class="content__sect">
+  <h2 class="sect__title">A Little About Us</h2>
+  <figure class="profiles__box">
+    <div class="prof__img left">
+    </div>
+    <div class="prof__img right">
+    </div>
+  </figure>
+  <div class="content__span center-text">
+    <h4 class="names">Alex</h4>
+    <h4 class="names">John</h4>
+    <h4 class="plus">+</h4>
+    <p class="lg profile">The husband and wife food pairing duo was born of a mans passion for drink, and a womans obsession with baking.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+    <a class="btn lg" href="/about">Learn More</a>
+  </div>
+</section>
+{% endcomment %}
+
+{% include 'includes/taxonomy-footer' %}
+
+{% include 'includes/footer' %}

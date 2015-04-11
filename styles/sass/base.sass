@@ -1,0 +1,1057 @@
+@import '_mixins'
+@import '_normalize'
+@import '_variables'
+@import '_grid'
+@import '_typography'
+@import '_posts'
+@import '_animate'
+@import '_archive'
+@import '_about'
+
+
+//@import '_animate'
+//@import '_starter'
+
+
+// Base Styles --------------------------------------------------- Base Styles //
+
+html, body, div, span, applet, object, iframe, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td
+
+  margin: 0
+  padding: 0
+  border: 0
+  outline: 0
+  font-size: 100%
+  vertical-align: baseline
+  //background: transparent
+
+h1, h2, h4, p
+  -webkit-margin-start: 0 !important
+  -webkit-margin-end: 0 !important
+  -webkit-margin-before: 0 !important
+  -webkit-margin-after: 0 !important
+  -webkit-margin-before: 0 !important
+  -webkit-margin-after: 0 !important
+
+html
+  font-size: 16px
+  background: white
+  overflow-x: hidden
+  overflow-y: visible !important
+
+body
+  overflow-x: hidden
+  overflow-y: visible
+  line-height: 1.5
+  font-family: $sans
+  font-weight: 400 !important
+  font-size: 100%!important
+  height: initial !important
+
+  +min-width($mobile)
+    font-size: 120%!important
+    border: 2.25vw solid white
+
+  +min-width($tablet)
+    font-size: 130%!important
+    border: 2vw solid white
+
+  +min-width($desktop)
+    font-size: 140%!important
+    border: 20px solid white
+
+ol,ul
+  list-style:  none
+
+blockquote,q
+  quotes:  none
+
+blockquote:before,blockquote:after,q:before,q:after
+  content:  ''
+  content:  none
+  &:focus
+    outline:  0
+
+ins
+  text-decoration: none
+
+del
+  text-decoration: line-through
+
+table
+  border-collapse: collapse
+  border-spacing: 0
+
+*,*:before,*:after
+  $property: box-sizing
+  $value: border-box
+  +prefix-property($property, $value)
+
+*::selection
+  color: white !important
+  background: black !important
+
+
+// Structural --------------------------------------------------- Structural //
+
+section
+  display: block
+  position: relative
+
+  +min-width($tablet)
+    padding: 1em 2em
+
+  &.container
+    margin: 0 !important
+
+    +min-width($tablet)
+      margin: 0 auto !important
+
+  div.overlay
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background: rgba(0,0,0,.5)
+
+.content__span
+  position: relative
+  margin: 0 auto
+  width: 90vw
+  display: table
+  +min-width($mobile)
+    width: 90vw
+  +min-width($tablet)
+    width: 80vw
+  +min-width($desktop)
+    width: 80vw
+  +min-width($desktop-large)
+    width: 70vw
+
+  &--recipe
+    position: relative
+    margin: 0 auto
+    width: 96vw
+    display: table
+    +min-width($mobile)
+      width: 96vw
+    +min-width($tablet)
+      width: 96vw
+    +min-width($desktop)
+      width: 85vw
+    +min-width($desktop-large)
+      width: 75vw
+
+
+section.page__title
+  margin: 100px auto
+  padding: 0
+  width: 90vw
+  display: block
+
+  +min-width($tablet)
+    margin: 100px auto 100px
+
+
+
+.page__title, .post__title
+
+  .title-block
+    padding: 2em 0
+    opacity: 1
+
+    +min-width($tablet)
+      padding: 2em 5em
+
+    +min-width($desktop)
+      padding: 2em 10em
+
+    +min-width($desktop-large)
+      padding: 2em 11em
+      max-width: 1000px
+
+    &:before
+      content: ""
+      top: -100px
+      width: 2px
+      height: 100px
+      background: $black
+      position: absolute
+      opacity: 1 !important
+
+    &:after
+      content: ""
+      bottom: -100px
+      width: 2px
+      height: 100px
+      background: $black
+      position: absolute
+      opacity: 1 !important
+
+    &--title-img
+      padding: .5em 0
+      opacity: 1
+
+      +min-width($tablet)
+        padding: 0em 5em
+
+      +min-width($desktop)
+        padding: 0em 10em
+
+      +min-width($desktop-large)
+        padding: 0em 11em
+        max-width: 1000px
+
+      &:before
+        content: ""
+        top: -100px
+        width: 2px
+        height: 100px
+        background: $black
+        position: absolute
+        opacity: 1 !important
+
+      &:after
+        content: ""
+        bottom: -100px
+        width: 2px
+        height: 100px
+        background: $black
+        position: absolute
+        opacity: 1 !important
+
+      .title-img
+        width: 100%
+        img
+          width: 100%
+
+      .post-title-img
+        width: 100%
+        img
+          width: 100%
+          +min-width($tablet)
+            width: 70vw
+
+
+    h1, h6
+      $property: transition
+      $value: opacity 0.3s ease-in-out
+      +prefix-property($property, $value)
+
+    h1
+      color: $black
+      font-family: grad
+
+    h6
+      color: rgba($black, .25)
+      margin-top: 1.5em
+      margin-bottom: 0
+
+
+
+
+
+// Head Wrapper --------------------------------------------------- Head Wrapper //
+
+nav
+  position: relative
+  top: 0
+  left: 0
+  right: 0
+  padding: 6vw 0
+  margin: 0
+  $property: transition
+  $value: position 1s ease-in-out
+  +prefix-property($property, $value)
+
+  +min-width($tablet)
+    padding: 2rem 0
+
+  +min-width($desktop)
+    padding: 2.5rem 0
+
+  +min-width($desktop-large)
+    padding: 3rem 0 3.5rem
+
+  div.container
+    margin: 0 !important
+
+    +min-width($tablet)
+      margin: 0 auto !important
+
+  ul
+    width: 100%
+    position: relative
+    text-align: center
+
+    li
+      margin: 0 !important
+
+      a
+        color: $black
+
+    li.logo
+      text-align: center
+      margin: 0
+      padding: 0
+      display: inline-block
+
+      img
+        width: calc(238px - 120px)
+        padding: 0
+        margin: 0
+
+        +min-width($mobile)
+          width: calc(238px - 50px)
+
+        +min-width($tablet)
+          width: calc(238px - 20px)
+
+        +min-width($desktop)
+          width: 238px
+
+    li.nav__items
+      $padding-base: 5vw
+      display: inline-block
+      padding-right: $padding-base
+      width: 23vw
+      position: relative
+      top: -28px
+
+      &.right
+        text-align: right
+        padding-left: $padding-base
+        padding-right: 0 !important
+
+      +min-width($mobile)
+        $padding-sm: 8vw
+        padding-right: $padding-sm
+        top: -45px
+
+        &.right
+          padding-left: $padding-sm
+
+      +min-width($tablet)
+        $padding-med: 12vw
+        padding-right: $padding-med
+        top: -50px
+
+        &.right
+          padding-left: $padding-med
+
+      +min-width($desktop)
+        $padding-large: 17vw
+        padding-right: $padding-large
+        +vertical-align
+        top: -46px
+        &.right
+          padding-left: $padding-large
+
+  &.sticky
+    padding: 1rem 0 1rem
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    background-color: white
+    z-index: 9999
+    margin: 0
+    margin-top: 0
+    $property: transition
+    $value: all 0.3s cubic-bezier(.25,.1,.25,1)
+    +prefix-property($property, $value)
+
+    figure
+      margin: 0
+      padding: 0
+      display: none
+      height: 24px
+
+      +min-width($mobile)
+        width: 18%
+        display: inline-block
+
+      img
+        width: auto
+        height: 0
+        padding: 0
+        margin: 0
+        float: left
+
+        +min-width($mobile)
+          height: 30px
+        +min-width(tablet)
+          height: 42px
+
+    ul
+      display: inline
+      width: 100%
+      +vertical-align
+
+      +min-width($mobile)
+        width: 82%
+
+      li
+        display: inline-block
+        opacity: .25
+        width: 32%
+        color: $black
+        font-family: $serif
+        font-size: 1em
+        opacity: .25
+        transition: opacity .2s ease
+
+        &:hover
+          opacity: .75 !important
+
+        +min-width($mobile)
+          padding: 0
+          width: 25%
+        +min-width($desktop)
+
+
+// Hero --------------------------------------------------- Hero //
+
+section#peeky_hero
+
+  padding: 0 !important
+  background-size: cover
+  background: rgba($black,1)
+  height: calc(80vh - 4.5vw)
+  min-height: 450px
+  overflow: hidden
+
+  //background: black
+
+  +min-width($desktop)
+    height: calc(80vh - 40px)
+
+  &:after
+    content: "READ"
+    bottom: -40px
+    width: 10%
+    padding: 15px 0 25px
+    opacity: 0
+    background: white
+    color: black
+    position: absolute
+    height: 20px
+    left: 45%
+    right: 45%
+    text-align: center
+    font-family: $sans
+    font-size: .8rem
+    text-transform: uppercase
+    font-weight: bold
+    letter-spacing: .25em
+    line-height: 1em
+    $property: transition
+    $value: all 0.3s cubic-bezier(.25,.1,.25,1)
+    +prefix-property($property, $value)
+
+  +min-width($tablet)
+    &:hover
+      .side__img
+        opacity: .7
+
+      //.hero__title-box
+        .text
+          transform: translateZ(-200px) translateY(-44px)
+
+
+        //img
+          transform: scale(1.5)
+          transform-origin: right center
+          $property: transition
+          $value: transform 0.3s ease-in-out
+          +prefix-property($property, $value)
+
+      &:after
+        bottom: 0
+        opacity: 1
+
+  .side__img
+    position: absolute
+    background: $black
+    background-size: cover
+    background-position: center
+    width: 50%
+    height: 100%
+    margin: 0
+    padding: 0
+    overflow: hidden
+    opacity: .8
+    $property: transition
+    $value: opacity 0.3s ease-in-out
+    +prefix-property($property, $value)
+
+
+    img
+      height: 100%
+      //center images
+      $property: transform
+      $value: translateX(-50%)
+      +prefix-property($property, $value)
+      left: 50%
+      position: relative
+      $property: transition
+      $value: transform 0.3s ease-in-out
+      +prefix-property($property, $value)
+
+  .left
+    left: 0
+    top: 0
+    bottom: 0
+
+  .right
+    right: 0
+    top: 0
+    bottom: 0
+
+  //.hero__line
+    width: 2px
+    height: 20vh
+    margin: 0 auto
+    text-align: center
+    background-color: white
+
+  .hero__title-box
+    text-align: center
+    padding: 3vw 3vh
+    border: 9px solid white
+    margin: 0 auto
+    width: 80vw
+    position: relative
+    top: 50%
+    -webkit-transform: translateY(-50%)
+    -ms-transform: translateY(-50%)
+    transform: translateY(-50%)
+    perspective: 1000px
+
+    &:before
+      content: ""
+      top: -50vh
+      width: 2px
+      height: 50vh
+      background: $white
+      position: absolute
+
+    &:after
+      content: ""
+      bottom: -50vh
+      width: 2px
+      height: 50vh
+      background: $white
+      position: absolute
+
+
+    +min-width($mobile)
+      width: 70vw
+
+    +min-width($tablet)
+      width: 55vw
+
+    +min-width($desktop)
+      width: 45vw
+      padding: 5vw 5vh
+
+    +min-width($desktop)
+      max-width: 600px
+
+    .hero-title-img
+      width: 100%
+      margin-top: -3vw
+      margin-bottom: -2vw
+
+      +min-width($tablet)
+        margin-top: -2vw
+        margin-bottom: -2vw
+
+      img
+        width: 100%
+
+    h1
+      color: white
+      font-family: grad
+
+    h6
+      color: white
+      margin-top: 0
+
+
+// Home Content Sections --------------------------------------------------- Home Content Sections //
+
+
+section.content__sect
+  padding: 3rem 0 2.5rem
+
+  +min-width($tablet)
+    padding: 4.5rem 0 3.75rem
+
+  +min-width($desktop)
+    padding: 6rem 0 5rem
+
+  &.first
+    padding: 6rem 0 2.5rem
+
+    +min-width($tablet)
+      padding: 8rem 0 3.75rem
+
+    +min-width($desktop)
+      padding: 10rem 0 5rem
+
+
+  h2.sect__title
+    text-align: center
+    padding-bottom: 3rem
+
+    +min-width($tablet)
+      padding-bottom: 4.5rem
+
+    +min-width($desktop)
+      padding-bottom: 6.25rem
+
+    &.w__sub
+      padding-bottom: 0
+
+
+
+    &.post
+      font-size: 175%
+      padding-bottom: 1.5rem
+
+      +min-width($tablet)
+        padding-bottom: 2.25rem
+
+      +min-width($desktop)
+        padding-bottom: 3.125rem
+
+  h6.sect__title-sub
+    color: rgba($black, .25)
+    text-align: center
+    margin-left: auto
+    margin-right: auto
+    padding-bottom: 3rem
+    max-width: 425px
+
+    +min-width($tablet)
+      padding-bottom: 4.5rem
+
+    +min-width($desktop)
+      padding-bottom: 6.25rem
+
+  h4.btn
+    color: black
+    padding-top: 2.813rem
+    margin-left: auto
+    margin-right: auto
+    display: inline-block
+    text-align: center
+
+    +min-width($tablet)
+      padding-top: 3.813rem
+
+    +min-width($desktop)
+      padding-top: 4.813rem
+
+    a
+      color: $black
+
+figure.thumb__box
+  position: relative
+  margin: 0 auto
+  background: $black
+  overflow: hidden
+
+  &:hover
+    .side__img
+      opacity: .7
+      $property: transition
+      $value: opacity 0.3s ease-in-out
+      +prefix-property($property, $value)
+
+  &.large
+    width: 90vw
+    height: 20rem
+    +min-width($mobile)
+      width: 90vw
+      height: 24rem
+    +min-width($tablet)
+      width: 80vw
+      height: 26rem
+    +min-width($desktop)
+      width: 80vw
+      height: 30rem
+    +min-width($desktop-large)
+      width: 70vw
+      height: 34rem
+    +min-width(2200px)
+      height: 40rem
+
+
+  &.small
+    height: 100%
+
+  .side__img
+    position: absolute
+    background: black
+    background-size: cover
+    background-position: center
+    width: 50%
+    height: 100%
+    margin: 0
+    padding: 0
+    overflow: hidden
+    opacity: .9
+    $property: transition
+    $value: opacity 0.3s ease-in-out
+    +prefix-property($property, $value)
+
+    img
+      height: 100%
+      //center images
+      $property: transform
+      $value: translateX(-50%)
+      +prefix-property($property, $value)
+      left: 50%
+      position: relative
+
+  .left
+    left: 0
+    top: 0
+    bottom: 0
+
+  .right
+    right: 0
+    top: 0
+    bottom: 0
+
+.thumb__group
+  width: 90vw
+  padding-top: 30px
+  margin: 0 auto
+  display: table
+  +min-width($tablet)
+    width: calc(80vw + 60px)
+  +min-width($desktop)
+    width: calc(80vw + 60px)
+  +min-width($desktop-large)
+    width: calc(70vw + 60px)
+
+  .thumb__group--box
+    float: left
+    width: 100%
+    height: 20rem
+    margin: 0 auto 30px
+    padding-left: 0
+    +min-width($mobile)
+      height: 18rem
+    +min-width($tablet)
+      width: calc(50% - 15px)
+      //width: 38.125vw
+      height: 18rem
+      margin: 0 auto
+      padding-left: 30px
+    +min-width($desktop)
+      //width: 38.125vw
+      height: 20rem
+    +min-width($desktop-large)
+      //width: 33.125vw
+      height: 22rem
+
+    //&:first-child
+      margin-left: 0 !important
+      +min-width($tablet)
+        margin-right: 30px !important
+
+    //&:last-child
+      margin-right: 0 !important
+
+
+.thumb__title-box
+  text-align: center
+  border: 9px solid white
+  margin: 0 auto
+  position: relative
+  top: 50%
+  -webkit-transform: translateY(-50%)
+  -ms-transform: translateY(-50%)
+  transform: translateY(-50%)
+
+  &:before
+    content: ""
+    top: -50vh
+    width: 2px
+    height: 50vh
+    background: $white
+    position: absolute
+
+  &:after
+    content: ""
+    bottom: -50vh
+    width: 2px
+    height: 50vh
+    background: $white
+    position: absolute
+
+  &.large
+    width: 80vw
+    padding: 3vw 4vw 2vw
+
+    +min-width($mobile)
+      width: 65vw
+
+    +min-width($tablet)
+      width: 50vw
+
+    +min-width($desktop)
+      width: 45vw
+
+    +min-width($desktop-large)
+      width: 40vw
+      max-width: 550px
+
+
+    h1
+      color: white
+      font-family: grad
+
+    h6
+      color: white
+      margin-top: 0
+
+    .title-img
+      width: 100%
+      margin-top: -3vw
+      margin-bottom: -1vw
+
+      +min-width($tablet)
+        margin-top: -2vw
+        margin-bottom: -1vw
+
+      +min-width($desktop)
+        margin-top: -1vw
+        margin-bottom: -1vw
+
+      img
+        width: 100%
+
+
+  &.small
+    width: 70%
+    padding: 6% 8%
+
+    h1
+      color: white
+      font-size: 150%
+
+
+
+
+
+figure.profiles__box
+  position: relative
+  margin: 0 auto
+  background: $black
+  width: 90vw
+  height: 20rem
+  +min-width($mobile)
+    width: 90vw
+    height: 24rem
+  +min-width($tablet)
+    width: 80vw
+    height: 26rem
+  +min-width($desktop)
+    width: 80vw
+    height: 30rem
+  +min-width($desktop-large)
+    width: 70vw
+    height: 33.88rem
+  +min-width(2200px)
+    height: 42rem
+
+  .prof__img
+    position: absolute
+    background: black
+    width: 50%
+    height: 100%
+    margin: 0
+    padding: 0
+    overflow: hidden
+    opacity: .9
+    $property: transition
+    $value: opacity 0.3s ease-in-out
+    +prefix-property($property, $value)
+
+    img
+      height: 100%
+      //center images
+      $property: transform
+      $value: translateX(-50%)
+      +prefix-property($property, $value)
+      left: 50%
+      position: relative
+
+  .left
+    width: 100%
+    background-size: cover
+    background-position: center
+
+    +min-width($tablet)
+      background-image: url(/img/portrait-alex.jpg)
+      width: 50%
+      left: 0
+      top: 0
+      bottom: 0
+
+  .right
+    width: 100%
+    background-image: url(/img/portrait-both.jpg)
+    background-size: cover
+    background-position: center
+
+    +min-width($tablet)
+      background-image: url(/img/portrait-john.jpg)
+      width: 50%
+      right: 0
+      top: 0
+      bottom: 0
+
+
+h4.names
+  color: $black
+  padding: 50px 0 0
+  width: 50%
+  text-align: center
+  margin: 0
+  float: left
+
+h4.plus
+  transform: translateY(-30px)
+  width: 100% !important
+  color: $black
+  text-align: center
+  margin: 0
+
+p.profile
+  padding: 2em 2em
+
+  &--pad
+    padding: 2em 3em
+    +min-width($desktop-large)
+    padding: 2em 3.5em
+
+.parts__col
+  list-style: none
+  margin-bottom: 4rem
+  padding-right: 30px
+
+  +min-width($tablet)
+    padding-right: 0 !important
+
+  h3
+    position: relative
+    margin: 0 0 3rem
+
+    &:after
+      content: ""
+      position: absolute
+      left: 0
+      right: 0
+      bottom: -1.5rem
+      background: $black
+      height: 9px
+
+  ul
+    li
+      color: $black
+      font-family: $serif
+      font-size: 1.1em
+      line-height: 1.8
+
+footer
+  border-top: solid 3px black
+  padding: 4rem 0
+
+  +min-width($tablet)
+    padding: 6rem 0
+
+  ul
+    width: 50%
+    margin-bottom: 1rem
+
+    li
+      a
+        $property: transition
+        $value: opacity 0.1s ease-in-out
+        +prefix-property($property, $value)
+
+    +min-width($tablet)
+      width: 45%
+      margin-bottom: 0
+
+    +min-width($tablet)
+      display: inline-block
+
+    &.nav
+      float: right
+      text-align: right
+      +min-width($tablet)
+        float: none
+        text-align: left
+      li
+        margin-left: 6vw
+        +min-width($tablet)
+          margin-left: 0
+          margin-right: 6vw
+
+    &.logo
+      float: left
+      +min-width($tablet)
+        float: none
+        text-align: center
+        width: 10%
+        clear: both
+
+      li
+        height: 25px
+
+      figure
+        margin: 0
+        padding: 0
+        height: 28px
+
+        +min-width($mobile)
+          width: 18%
+
+        img
+          width: auto
+          padding: 0
+          margin: 0
+          float: left
+
+          +min-width($mobile)
+            height: 44px
+          +min-width(tablet)
+            height: 54px
+
+    &.feed
+      float: right
+      text-align: right
+      +min-width($tablet)
+        float: none
+      li
+        margin-left: 6vw
+
+        a.social
+          $property: transition
+          $value: all 0.2s cubic-bezier(.25,.1,.25,1)
+          +prefix-property($property, $value)
+
+          img
+            height: 19px
+
+
+    li
+      display: inline-block

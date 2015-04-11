@@ -1,0 +1,40 @@
+<script src="/js/min/slick.min.js"></script>
+
+<script src="/js/min/base-min.js"></script>
+
+<script type="text/javascript">
+mixpanel.track_links(".nav__items a", "click nav link", {
+  "referrer": document.referrer
+});
+mixpanel.track('page viewed', {
+  'page name' : document.title,
+  'url' : window.location.pathname
+});
+</script>
+
+
+
+
+{% comment %}
+<script charset="utf-8">
+
+var s = skrollr.init({
+easing: {
+//This easing will sure drive you crazy
+wtf: Math.random,
+inverted: function(p) {
+return 1-p;
+}
+}
+
+});
+
+skrollr.init({
+forceHeight: false,
+smoothScrolling: true,
+mobileCheck: function() {
+return !(/Android|iPhone|iPad|iPod|BlackBerry/i).test(navigator.userAgent || navigator.vendor || window.opera);
+}
+});
+</script>
+{% endcomment %}

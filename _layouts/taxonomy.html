@@ -1,0 +1,43 @@
+<section class="post__title">
+  <div class="content__span center-text title-block">
+    <h1 class="taxonomy">Posts tagged with <a href="{{current.url}}">{{title}}</a></h1>
+  </div>
+</section>
+
+
+{% comment %} POST JUMP-POINT {% endcomment %}
+{% for post in posts %}
+<a href="{{post.url}}">
+  <section id="peeky_hero" class="container">
+    <!--<div class="overlay"></div>-->
+    <div class="side__img left" style="background-image:url({{post.meta['hero-baked']}});">
+    </div>
+    <div class="side__img right" style="background-image:url({{post.meta['hero-coffee']}});">
+    </div>
+    <span class="hero__line"></span>
+    <div class="hero__title-box">
+      <h6>{{post.date | date: "%D"}}</h6>
+      {% comment %}
+      <h1>{{meta['post-title-w']}}</h1>
+      {% endcomment %}
+      <div class="hero-title-img">
+        <img src="{{post.meta['post-title-w']}}" alt="" />
+      </div>
+    </div>
+    <div class="hero__line"></div>
+  </section>
+</a>
+{% endfor %}
+
+{% comment %} EMAIL SUBSCRIPTION {% endcomment %}
+<section class="content__sect">
+  <section class="content__span ">
+    <div class="post__end">
+      <ul>
+        <li class="mailing--list">
+          {% include 'includes/mail-chimp' %}
+        </li>
+      </ul>
+    </div>
+  </section>
+</section>
