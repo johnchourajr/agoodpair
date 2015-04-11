@@ -1,3 +1,3 @@
 #A Good Pair
 
-Just starting the build for a collaboration project that I'm working on with my wife. Stay tuned.
+A curated journal of complementary food and drink pairings that I helped create with my wife.
