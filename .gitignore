@@ -7,6 +7,6 @@ theme.zip
 styles/*.css
 .bundle/
 .ignore
-.ignorejs
-.ignoreimg
+js/.ignorejs
+img/.ignoreimg
 config.codekit
